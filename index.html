@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-timers">
+            <div class="work-timer">
+                <h2 class="timer-label">Work Timer</h2>
+                <div class="timer-text" id="work-timer-text">25:00</div>
+                <div class="timer-controls">
+                    <button id="work-increase-btn" class="arrow-btn"><i class="fas fa-arrow-up"></i></button>
+                    <button id="work-decrease-btn" class="arrow-btn"><i class="fas fa-arrow-down"></i></button>
+                </div>
+            </div>
+            <div class="break-timer">
+                <h2 class="timer-label">Break Timer</h2>
+                <div class="timer-text" id="break-timer-text">5:00</div>
+                <div class="timer-controls">
+                    <button id="break-increase-btn" class="arrow-btn"><i class="fas fa-arrow-up"></i></button>
+                    <button id="break-decrease-btn" class="arrow-btn"><i class="fas fa-arrow-down"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="right-timer">
+            <div class="lofi-timer">
+                <div class="timer-circle" id="timer-circle"></div>
+                <div class="timer-text" id="main-timer-text">25:00</div>
+            </div>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="buttons">
+                <button id="start-btn"><i class="fas fa-play"></i> Start</button>
+                <button id="stop-btn"><i class="fas fa-stop"></i> Stop</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Include sound file for timer -->
+    <audio id="audio" src="sound.wav"></audio>
+</body>
+</html>

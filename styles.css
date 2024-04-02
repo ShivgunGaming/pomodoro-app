@@ -1,0 +1,170 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a; /* Dark gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.left-timers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-timer {
+    text-align: center;
+}
+
+.work-timer, .break-timer {
+    background-color: #2b2929; /* Dark gray background */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.timer-label {
+    color: #FA5252;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+}
+
+.timer-text {
+    color: #FA5252;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    margin-top: 10px;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; /* Add spacing between the buttons */
+}
+
+.arrow-btn {
+    background-color: #FA5252; /* Button background color */
+    border: none;
+    border-radius: 50%; /* Rounded shape */
+    cursor: pointer;
+    color: #fff; /* Button text color */
+    font-size: 1.5rem;
+    width: 40px; /* Adjust button width */
+    height: 40px; /* Adjust button height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    margin: 0 5px; /* Add spacing between the buttons */
+}
+
+.arrow-btn:hover {
+    background-color: #a22e1c; /* Button background color on hover */
+}
+
+.lofi-timer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.timer-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: timerAnimate 1500s forwards; /* Changed linear to forwards */
+    background-image: url('lofi-background.jpg'); /* Replace 'lofi-background.jpg' with your image */
+    background-size: cover;
+    opacity: 1; /* Initially fully visible */
+}
+
+@keyframes timerAnimate {
+    0% {
+        opacity: 1; /* Start with full opacity */
+    }
+    100% {
+        opacity: 0; /* Gradually fade out to completely transparent */
+    }
+}
+
+
+.timer-text#main-timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Pacifico', cursive;
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #2b2929; /* Dark gray background */
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #FA5252; /* Progress bar color */
+    width: 0; /* Initially hidden */
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #FA5252;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.buttons button:hover {
+    background-color: #a22e1c;
+}
+
+.fa-play,
+.fa-stop {
+    margin-right: 5px;
+}
+
+@keyframes timerAnimate {
+    from {
+        opacity: 1; /* Start with full opacity */
+    }
+    to {
+        opacity: 0; /* Gradually fade out to completely transparent */
+    }
+}
