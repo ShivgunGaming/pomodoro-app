@@ -1,8 +1,8 @@
 let timer;
 let isRunning = false;
 const numCycles = 4; // Number of cycles to repeat
-let workDuration;
-let breakDuration;
+let workDuration = 25 * 60; // Initial work duration in seconds (25 minutes)
+let breakDuration = 5 * 60; // Initial break duration in seconds (5 minutes)
 
 // Function to play the bell sound
 function playBellSound() {
@@ -92,23 +92,31 @@ document.getElementById("start-btn").addEventListener("click", function () {
     }
 });
 
-// Event listener for the stop button
-document.getElementById("stop-btn").addEventListener("click", function () {
+// Event listener for the reset button
+document.getElementById("reset-btn").addEventListener("click", function () {
     clearInterval(timer);
     isRunning = false;
     document.getElementById("main-timer-text").textContent = "25:00"; // Reset timer to default value
 });
 
+// Event listener for the stop button
+document.getElementById("stop-btn").addEventListener("click", function () {
+    clearInterval(timer);
+    isRunning = false;
+});
+
 // Event listeners for arrow buttons (optional: if you want to allow manual adjustments)
 document.getElementById("work-increase-btn").addEventListener("click", function () {
     let workTime = parseInt(document.getElementById("work-timer-text").textContent.split(":")[0]);
-    workTime++;
-    updateTimerText("work-timer-text", workTime);
+    if (workTime < 30) { // Maximum work time is 30 minutes
+        workTime++;
+        updateTimerText("work-timer-text", workTime);
+    }
 });
 
 document.getElementById("work-decrease-btn").addEventListener("click", function () {
     let workTime = parseInt(document.getElementById("work-timer-text").textContent.split(":")[0]);
-    if (workTime > 1) {
+    if (workTime > 15) { // Minimum work time is 15 minutes
         workTime--;
         updateTimerText("work-timer-text", workTime);
     }
@@ -116,13 +124,15 @@ document.getElementById("work-decrease-btn").addEventListener("click", function 
 
 document.getElementById("break-increase-btn").addEventListener("click", function () {
     let breakTime = parseInt(document.getElementById("break-timer-text").textContent.split(":")[0]);
-    breakTime++;
-    updateTimerText("break-timer-text", breakTime);
+    if (breakTime < 30) { // Maximum break time is 30 minutes
+        breakTime++;
+        updateTimerText("break-timer-text", breakTime);
+    }
 });
 
 document.getElementById("break-decrease-btn").addEventListener("click", function () {
     let breakTime = parseInt(document.getElementById("break-timer-text").textContent.split(":")[0]);
-    if (breakTime > 1) {
+    if (breakTime > 3) { // Minimum break time is 3 minutes
         breakTime--;
         updateTimerText("break-timer-text", breakTime);
     }
