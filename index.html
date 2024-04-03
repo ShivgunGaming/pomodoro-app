@@ -6,41 +6,45 @@
     <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Include Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <!-- Include Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <h1 class="app-title" style="font-family: 'Dancing Script', cursive;">Pomodoro Timer</h1> <!-- Title Displayed Above Timers -->
     <div class="container">
         <div class="left-timers">
             <div class="work-timer">
-                <h2 class="timer-label">Work Timer</h2>
-                <div class="timer-text" id="work-timer-text">25:00</div>
-                <div class="timer-controls">
-                    <button id="work-increase-btn" class="arrow-btn"><i class="fas fa-arrow-up"></i></button>
+                <h2 class="timer-label" style="font-family: 'Dancing Script', cursive;">Work Timer</h2>
+                <div class="timer-text" id="work-timer-text" style="font-family: 'Dancing Script', cursive; margin-bottom: 10px;">25:00</div>
+                <div class="arrow-controls">
+                    <button id="work-increase-btn" class="arrow-btn" style="margin-right: 5px;"><i class="fas fa-arrow-up"></i></button>
                     <button id="work-decrease-btn" class="arrow-btn"><i class="fas fa-arrow-down"></i></button>
                 </div>
             </div>
             <div class="break-timer">
-                <h2 class="timer-label">Break Timer</h2>
-                <div class="timer-text" id="break-timer-text">5:00</div>
-                <div class="timer-controls">
-                    <button id="break-increase-btn" class="arrow-btn"><i class="fas fa-arrow-up"></i></button>
+                <h2 class="timer-label" style="font-family: 'Dancing Script', cursive;">Break Timer</h2>
+                <div class="timer-text" id="break-timer-text" style="font-family: 'Dancing Script', cursive; margin-bottom: 10px;">5:00</div>
+                <div class="arrow-controls">
+                    <button id="break-increase-btn" class="arrow-btn" style="margin-right: 5px;"><i class="fas fa-arrow-up"></i></button>
                     <button id="break-decrease-btn" class="arrow-btn"><i class="fas fa-arrow-down"></i></button>
                 </div>
             </div>
         </div>
-        <div class="right-timer">
+        <div class="right-timers">
             <div class="lofi-timer">
                 <div class="timer-circle" id="timer-circle"></div>
                 <div class="timer-text" id="main-timer-text">25:00</div>
             </div>
-            <div class="progress-container">
-                <div id="progress-bar"></div>
-            </div>
-            <div class="buttons">
-                <button id="start-btn"><i class="fas fa-play"></i> Start</button>
-                <button id="stop-btn"><i class="fas fa-stop"></i> Stop</button>
+            <div class="progress-and-buttons">
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div class="buttons">
+                    <button id="start-btn"><i class="fas fa-play"></i> Start</button>
+                    <button id="stop-btn"><i class="fas fa-stop"></i> Stop</button>
+                    <button id="reset-btn"><i class="fas fa-sync"></i> Reset</button>
+                </div>
             </div>
         </div>
     </div>

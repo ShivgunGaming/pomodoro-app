@@ -1,8 +1,11 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a; /* Dark gray background */
+    background-color: #1a1a1a;
+    background-image: url('lofigirl.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -15,20 +18,23 @@ body {
     align-items: center;
     width: 80%;
     max-width: 1000px;
+    margin-top: 150px;
 }
 
-.left-timers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+body, h1, h2, .timer-text, .buttons button {
+    font-family: 'Dancing Script', cursive;
 }
 
-.right-timer {
-    text-align: center;
+.app-title {
+    color: #FA5252;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
 }
 
 .work-timer, .break-timer {
-    background-color: #2b2929; /* Dark gray background */
+    background-color: #2b2929;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -49,31 +55,29 @@ body {
     margin-top: 10px;
 }
 
-.timer-controls {
+.arrow-controls {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 10px; /* Add spacing between the buttons */
 }
 
 .arrow-btn {
-    background-color: #FA5252; /* Button background color */
+    background-color: #FA5252;
     border: none;
-    border-radius: 50%; /* Rounded shape */
+    border-radius: 50%;
     cursor: pointer;
-    color: #fff; /* Button text color */
+    color: #fff;
     font-size: 1.5rem;
-    width: 40px; /* Adjust button width */
-    height: 40px; /* Adjust button height */
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: background-color 0.3s;
-    margin: 0 5px; /* Add spacing between the buttons */
+    margin: 0 5px;
 }
 
 .arrow-btn:hover {
-    background-color: #a22e1c; /* Button background color on hover */
+    background-color: #a22e1c;
 }
 
 .lofi-timer {
@@ -92,21 +96,21 @@ body {
     border: 10px solid #fff;
     border-radius: 50%;
     box-sizing: border-box;
-    animation: timerAnimate 1500s forwards; /* Changed linear to forwards */
-    background-image: url('lofi-background.jpg'); /* Replace 'lofi-background.jpg' with your image */
+    animation: timerAnimate 1500s forwards;
+    background-image: url('lofi-background.jpg');
     background-size: cover;
-    opacity: 1; /* Initially fully visible */
+    opacity: 1;
+    font-family: 'Pacifico', cursive;
 }
 
 @keyframes timerAnimate {
     0% {
-        opacity: 1; /* Start with full opacity */
+        opacity: 1;
     }
     100% {
-        opacity: 0; /* Gradually fade out to completely transparent */
+        opacity: 0;
     }
 }
-
 
 .timer-text#main-timer-text {
     position: absolute;
@@ -117,26 +121,33 @@ body {
     color: #fff;
     font-weight: bold;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    font-family: 'Pacifico', cursive;
+}
+
+.progress-and-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .progress-container {
     width: 100%;
     height: 10px;
-    background-color: #2b2929; /* Dark gray background */
+    background-color: #2b2929;
     border-radius: 5px;
     margin-top: 20px;
 }
 
 #progress-bar {
     height: 100%;
-    background-color: #FA5252; /* Progress bar color */
-    width: 0; /* Initially hidden */
+    background-color: #FA5252;
+    width: 0;
     border-radius: 5px;
 }
 
 .buttons {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .buttons button {
@@ -151,6 +162,10 @@ body {
     margin-right: 10px;
 }
 
+.buttons button:last-child {
+    margin-right: 0;
+}
+
 .buttons button:hover {
     background-color: #a22e1c;
 }
@@ -158,13 +173,4 @@ body {
 .fa-play,
 .fa-stop {
     margin-right: 5px;
-}
-
-@keyframes timerAnimate {
-    from {
-        opacity: 1; /* Start with full opacity */
-    }
-    to {
-        opacity: 0; /* Gradually fade out to completely transparent */
-    }
 }
