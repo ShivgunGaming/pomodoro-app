@@ -1,7 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #1a1a1a;
-    background-image: url('lofigirl.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -85,23 +84,32 @@ body, h1, h2, .timer-text, .buttons button {
     width: 200px;
     height: 200px;
     margin: 0 auto;
+    padding-top: 50px; /* Adjust the padding-top value to move the circle up */
+}
+
+.spacing {
+    margin-top: 20px; /* Adjust as needed */
 }
 
 .timer-circle {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Adjust the width as desired */
+    height: 300px; /* Adjust the height as desired */
     border: 10px solid #fff;
     border-radius: 50%;
     box-sizing: border-box;
     animation: timerAnimate 1500s forwards;
-    background-image: url('lofi-background.jpg');
-    background-size: cover;
+    background-image: url('cooll.gif');
+    background-size: cover; /* Ensure the background image covers the entire circle */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the background image within the circle */
     opacity: 1;
     font-family: 'Pacifico', cursive;
 }
+
 
 @keyframes timerAnimate {
     0% {
