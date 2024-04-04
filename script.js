@@ -12,32 +12,53 @@ function playBellSound() {
 // Function to start the timer
 function startTimer(duration, display, onFinish) {
     isRunning = true;
-    let start = Date.now();
+    let startTime = Date.now();
+    let remainingTime = duration; // Initialize remaining time to the duration
+    let timerInterval; // Variable to store the interval ID
 
     function timerFunction() {
-        if (!isRunning) return;
+        let now = Date.now();
+        let elapsedTime = now - startTime;
+        remainingTime = duration - Math.floor(elapsedTime / 1000);
 
-        let diff = duration - (((Date.now() - start) / 1000) | 0);
+        if (remainingTime <= 0) {
+            clearInterval(timerInterval);
+            isRunning = false;
+            display.textContent = "00:00";
+            playBellSound(); // Play sound when the timer ends
+            if (onFinish) onFinish();
+            return;
+        }
 
-        let minutes = Math.floor(diff / 60);
-        let seconds = Math.floor(diff % 60);
+        let minutes = Math.floor(remainingTime / 60);
+        let seconds = remainingTime % 60;
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
-
-        if (diff <= 0) {
-            clearInterval(timer);
-            isRunning = false;
-            display.textContent = "00:00";
-            playBellSound(); // Play sound when the timer ends
-            if (onFinish) onFinish();
-        }
     }
 
     timerFunction();
-    timer = setInterval(timerFunction, 1000);
+    timerInterval = setInterval(timerFunction, 1000);
+
+    // Event listener for the stop button to pause the timer
+    document.getElementById("stop-btn").addEventListener("click", function () {
+        clearInterval(timerInterval);
+        isRunning = false;
+        // Store the remaining time in sessionStorage
+        sessionStorage.setItem('remainingTime', remainingTime);
+        startTime = null; // Reset the start time
+    });
+
+    // Check if there's remaining time stored in sessionStorage
+    const storedRemainingTime = sessionStorage.getItem('remainingTime');
+    if (storedRemainingTime !== null) {
+        remainingTime = parseInt(storedRemainingTime);
+        // Clear the stored remaining time in sessionStorage
+        sessionStorage.removeItem('remainingTime');
+        startTime = Date.now() - (duration - remainingTime) * 1000; // Update the start time
+    }
 }
 
 // Function to update the progress bar
@@ -96,7 +117,8 @@ document.getElementById("start-btn").addEventListener("click", function () {
 document.getElementById("reset-btn").addEventListener("click", function () {
     clearInterval(timer);
     isRunning = false;
-    document.getElementById("main-timer-text").textContent = "25:00"; // Reset timer to default value
+    document.getElementById("main-timer-text").textContent = ""; // Reset timer to default value
+    sessionStorage.removeItem('remainingTime'); // Clear any stored remaining time
 });
 
 // Event listener for the stop button
